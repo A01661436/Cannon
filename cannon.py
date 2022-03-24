@@ -13,25 +13,26 @@ from turtle import *
 
 from freegames import vector
 
+#Posición inicial de cada elemento
 ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
 
-
+#Respuesta al click en la pantalla
 def tap(x, y):
     """Respond to screen tap."""
     if not inside(ball):
         ball.x = -199
         ball.y = -199
-        speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 25
+        speed.x = (x + 200) / 10
+        speed.y = (y + 200) / 10
 
 
 def inside(xy):
     """Return True if xy within screen."""
     return -200 < xy.x < 200 and -200 < xy.y < 200
 
-
+#Dibuja la pelota y los objetivos
 def draw():
     """Draw ball and targets."""
     clear()
@@ -46,7 +47,7 @@ def draw():
 
     update()
 
-
+# Movimiento de la pelota y los objetivos
 def move():
     """Move ball and targets."""
     if randrange(40) == 0:
@@ -55,7 +56,7 @@ def move():
         targets.append(target)
 
     for target in targets:
-        target.x -= 0.5
+        target.x -= 1.5
 
     if inside(ball):
         speed.y -= 0.35
