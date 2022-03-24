@@ -73,7 +73,9 @@ def move():
 
     for target in targets:
         if not inside(target):
-            return
+            # Se posicionan al llegar al borde de forma random
+            target.x += randrange(50, 400)
+            target.y = randrange(-100, 200)
 
     ontimer(move, 50)
 
